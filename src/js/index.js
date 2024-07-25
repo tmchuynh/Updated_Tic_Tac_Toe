@@ -1,20 +1,8 @@
 // Select all the HTML elements with the class 'cell' (representing each square in the Tic Tac Toe board)
 const cells = document.querySelectorAll(".cell");
 
-const playComputer = document.querySelector(".computer");
-
-// TODO: (OPTIONAL) --> BE ABLE TO PLAY AGAINST THE COMPUTER --> button click
-// TODO: RANDOM CURRENTPLAYER AT THE BEGINNING
-
 // Initialize variables to keep track of game state
 let currentPlayer = "X"; // Start with Player X
-
-// Randomize the first player
-// let currentPlayer = () => {
-//   if (Math.floor(Math.random() * 2) == 0) {
-//     return "O"
-//   } else {return "X"}
-// }
 
 let board = ["", "", "", "", "", "", "", "", ""]; // Represents the game board
 let scoreX = 0; // Initialize Player X's score
@@ -55,46 +43,6 @@ cells.forEach((cell) => {
                         resetGame(); // Reset the game for a new round
                   } else {
                         currentPlayer = currentPlayer === "X" ? "O" : "X"; // Switch turns between players
-                  }
-            }
-      });
-});
-
-playComputer.addEventListener("click", () => {
-      let computerPlayer;
-      if ((currentPlayer = "X")) {
-            computerPlayer = "O";
-      } else {
-            computerPlayer = "X";
-      }
-
-      // Loop through each cell element and add a click event listener
-      cells.forEach((cell) => {
-            const index = cell.dataset.index; // Get the index of the clicked cell
-            // Check if the cell is empty
-            if (board[index] === "") {
-                  // Check if the current player has won
-                  if (checkWinner(currentPlayer)) {
-                        highlightWinner(); // Highlight the winning combination on the board
-                        setTimeout(() => {
-                              alert(`Player ${currentPlayer} wins!`); // Show an alert with the winner
-                              updateScore(currentPlayer); // Update the scoreboard for the winner
-                              resetGame(); // Reset the game for a new round
-                        }, 100); // Delay to ensure the board is updated before alerting
-                  }
-                  // Check if the computer has won
-                  else if (checkWinner(computerPlayer)) {
-                        highlightWinner();
-                        setTimeout(() => {
-                              alert(`Player ${computerPlayer} wins!`);
-                              updateScore(computerPlayer);
-                              resetGame();
-                        }, 100);
-                  } else if (board.every((cell) => cell !== "")) {
-                        // Check if all cells are filled (tie game)
-                        alert("It's a tie!"); // Show an alert for a tie game
-                        updateTies(); // Update the tie counter on the scoreboard
-                        resetGame(); // Reset the game for a new round
                   }
             }
       });
@@ -148,7 +96,6 @@ function highlightWinner() {
 
 // Function to update the score for the winning player
 function updateScore(player) {
-      // computerPlayer
       if (player === "X") {
             scoreX++;
             scoreBoardX.textContent = `Player X: ${scoreX}`;
