@@ -1,0 +1,81 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Board container */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); /* Adjust grid size (columnS) */
+  grid-template-rows: repeat(3, 100px); /* Adjust grid size (rows) */
+  gap: 2px; /* Gap between cells */
+  width: 306px; /* Adjust based on grid size and gap */
+  margin: 20px auto; /* Center the board horizontally */
+  border: 10px solid #36393B;
+  border-radius: 10px; /* Rounded corners of the border */
+  box-shadow: 3px 5px 12px 1px rgba(115,115,115,0.56);
+}
+
+/* Individual cells */
+.cell {
+  width: 100px; /* Size of each cell */
+  height: 100px; /* Size of each cell */
+  display: flex;
+  background-color: #99E1D9;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 50px; /* Adjust font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.cell:nth-child(2n) {
+  background-color: white;
+}
+
+/* Highlighted style for winning cells */
+.cell.winner {
+  color: white; /* Text color for winning cells */
+  font-weight: bold; /* Bold text for winning cells */
+}
+
+/* Hover effect on cells */
+.cell:hover {
+  background-color: #70ABAF; /* Darker background color on hover */
+}
+
+/* Scoreboard container */
+.scoreboard {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Score display for players */
+.score-x,
+.score-o,
+.score-ties {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #005377;
+  color: #fff; /* White text color */
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 3px 5px 12px 1px rgba(115,115,115,0.56);
+}
+
+button {
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 5px 12px 1px rgba(115,115,115,0.56);
+  border: 1px solid grey;
+}
+
+button:hover {
+  background-color: #005377;
+  color: white;
+}
