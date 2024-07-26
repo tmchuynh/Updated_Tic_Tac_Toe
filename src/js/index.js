@@ -1,15 +1,5 @@
 // Select all the HTML elements with the class 'cell' (representing each square in the Tic Tac Toe board)
 const cells = document.querySelectorAll(".cell");
-const winConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8], // Rows
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8], // Columns
-  [0, 4, 8],
-  [2, 4, 6] // Diagonals
-];
 
 // Initialize variables to keep track of game state
 let currentPlayer = getCurrentPlayer();
@@ -34,6 +24,17 @@ const scoreBoardTies = document.querySelector(".score-ties"); // Element to disp
 scoreBoardX.textContent = `Player X: ${scoreX}`;
 scoreBoardO.textContent = `Player O: ${scoreO}`;
 scoreBoardTies.textContent = `Ties: ${ties}`;
+
+const winConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8], // Rows
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8], // Columns
+  [0, 4, 8],
+  [2, 4, 6] // Diagonals
+];
 
 // Loop through each cell element and add a click event listener
 cells.forEach((cell) => {
